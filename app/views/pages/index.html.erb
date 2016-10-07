@@ -1,0 +1,10 @@
+<div id="hello"></div>
+
+<script>
+  index.hello(document.getElementById('hello'), {
+    translations: {
+      hello: <%= raw t('hello').to_json %>,
+      helloWorld: <%= raw t('hello_world').to_json %>
+    }
+  });
+</script>

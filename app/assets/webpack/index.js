@@ -1,3 +1,3 @@
-export function helloWorld () {
-  console.log('hello world', require('./logo.png'));
-}
+import { hello } from './components/hello';
+
+export { hello };

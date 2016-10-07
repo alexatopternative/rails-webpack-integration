@@ -21,7 +21,7 @@
 .byebug_history
 
 # Assets
-/public/assets/
+/public/assets/webpack/
 
 # NodeJS
 node_modules/

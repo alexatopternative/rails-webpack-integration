@@ -3,11 +3,14 @@
     "build": "NODE_ENV=production webpack --config config/webpack.config.js -p",
     "start": "webpack --config config/webpack.config.js -w"
   },
-  "dependencies": {
+  "devDependencies": {
     "webpack": "1.13.2",
     "file-loader": "0.9.0",
     "babel-core": "6.17.0",
     "babel-loader": "6.2.5",
-    "babel-preset-es2015": "6.16.0"
+    "babel-preset-es2015": "6.16.0",
+    "babel-preset-react": "6.16.0",
+    "react": "15.3.2",
+    "react-dom": "15.3.2"
   }
 }

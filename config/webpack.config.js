@@ -7,6 +7,9 @@ const dstRoot = path.resolve(process.cwd(), 'public/assets/webpack');
 const isProduction = process.env.NODE_ENV === 'production';
 
 const productionPlugins = [
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify('production')
+  }),
   new webpack.optimize.UglifyJsPlugin()
 ];
 
@@ -23,20 +26,23 @@ module.exports = {
     filename: isProduction ? '[name]-[chunkhash].js' : '[name].js',
     library: '[name]'
   },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.js[x]?$/,
         loader: 'babel',
         query: {
-          presets: ['es2015']
+          presets: ['es2015', 'react']
         }
       },
       {
         test: /\.png$/,
         loader: 'file',
         query: {
-          name: isProduction ? '[name]-[hash].[ext]' : '[name].[ext]'
+          name: isProduction ? '[path][name]-[hash].[ext]' : '[path][name].[ext]'
         }
       }
     ]

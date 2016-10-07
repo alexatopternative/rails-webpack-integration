@@ -1,8 +1,8 @@
 module WebpackHelper
   def webpack_include_tag(asset, options = {})
     options = options.reverse_merge(
-      'src': webpack_asset_path(asset, 'js'),
-      'type': 'text/javascript'
+      src: webpack_asset_path(asset, 'js'),
+      type: 'text/javascript'
     )
     content_tag(:script, nil, options)
   end
@@ -12,7 +12,7 @@ module WebpackHelper
     hashed_asset = webpack_asset(/\A#{path}-\w+\.#{ext}\z/)
     unhashed_asset = webpack_asset(/\A#{path}\.#{ext}\z/)
     asset = hashed_asset || unhashed_asset
-    File.join('/', webpack_path, asset).to_s
+    File.join('/', webpack_path, asset).to_s if asset
   end
 
   def webpack_asset(pattern)
