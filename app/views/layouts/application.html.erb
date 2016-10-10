@@ -6,6 +6,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= webpack_include_tag 'index', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name='i18n' content="<%= i18n_json_builder('hello', 'bye') %>"></meta>
   </head>
   <body>
     <%= yield %>

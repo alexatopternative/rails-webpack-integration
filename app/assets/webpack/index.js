@@ -20,3 +20,10 @@ export function m () {
   return moment;
 }
 
+let dict;
+export function i18n (key) {
+  dict = dict || JSON.parse(document.querySelector('meta[name="i18n"]').getAttribute('content'));
+  return key
+    ? dict[key]
+    : dict;
+}
