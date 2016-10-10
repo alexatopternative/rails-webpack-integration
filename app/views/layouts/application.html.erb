@@ -10,6 +10,10 @@
   <body>
     <%= yield %>
     <script>
+      opt_tz_offset = <%= utc_offset_min %>;
+    </script>
+
+    <script>
       index.helloWorld();
     </script>
   </body>
