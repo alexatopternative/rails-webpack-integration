@@ -4,9 +4,9 @@
     <title>RailsWebpackIntegration</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= include_gon camel_case: true %>
     <%= webpack_include_tag 'index', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta name='i18n' content="<%= i18n_json_builder('hello', 'bye') %>"></meta>
   </head>
   <body>
     <%= yield %>
@@ -18,6 +18,8 @@
       index.helloWorld();
       console.log('application time: ' + index.appTime().toString());
       console.log('browser time: ' + index.browserTime().toString());
+      console.log('injected from Rails: ');
+      console.log(index.injected());
     </script>
   </body>
 </html>

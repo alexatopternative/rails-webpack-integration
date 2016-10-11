@@ -27,3 +27,7 @@ export function i18n (key) {
     ? dict[key]
     : dict;
 }
+
+export function injected() {
+  return window.gon;
+}
