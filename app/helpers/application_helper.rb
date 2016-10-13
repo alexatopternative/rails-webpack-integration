@@ -7,7 +7,7 @@ module ApplicationHelper
     keys = locale_keys.each
     i18n = Hash.new.tap do |dict|
       keys.each do |key|
-        dict[key] = t(key)
+        dict["i18n-#{key}"] = t(key)
       end
     end
   end

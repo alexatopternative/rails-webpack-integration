@@ -1,0 +1,26 @@
+<h1>Pages#Index</h1>
+<section>
+  <p>
+    Hello there
+  </p>
+</section>
+
+<%= content_tag(:div, i18n_builder('hello', :bye).merge(class: 'opt-context')) do -%>
+  <p id='para'>words contained with HTML attributes!</p>
+  <script>
+    $(function() {
+      console.log(index.retrieveContextFromAttrs(document.getElementById('para')));
+    });
+  </script>
+<% end -%>
+
+
+<% @greeting3 = i18n_builder(:hello, :bye) %>
+<%= content_tag(:div, dataset: @greeting3.to_json, class: 'opt-context') do -%>
+    <p id='para2'> within container that passes JSON to me</p>
+    <script>
+      $(function() {
+        console.log(index.retrieveContextFromJSON(document.getElementById('para2')));
+      });
+    </script>
+<% end -%>
